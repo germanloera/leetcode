@@ -65,9 +65,6 @@ public class MergeTwoBinarianTrees {
 
     }
 
-
-
-
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2){
 
 
@@ -80,49 +77,39 @@ public class MergeTwoBinarianTrees {
             return t1;
 
         }
-          preOrder(t1, t2, 0, root);
 
-        return  root;
+          preOrder(t1, t2);
+
+
+        return  t1;
 
     }
 
+    public static void preOrder(TreeNode t1, TreeNode t2){
 
-
-    public static void preOrder(TreeNode t1, TreeNode t2, int left, TreeNode current){
-
-        if(t1 ==  null && t2 == null){
+        if(t1 == null || t2 == null){
             return;
-        }else if(t1 == null && t2 != null){
-            current.left = t2;
-            return;
-        }else if(t1 != null && t2 == null ){
+        }
 
-            current.right = t1;
-return;
+
+        t1.val += t2.val;
+        if(t1.left == null && t2.left != null){
+            t1.left = t2.left;
+            return;
+        }
+
+        if(t1.right == null  && t2.right != null){
+            t1.right = t2.right;
+            return;
         }
 
 
 
-        TreeNode n =new TreeNode(t1.val + t2.val);
-        if( left == 1 ){
-            current.left = n;
-            current = current.left;
-        }else if(left == 2){
-            current.right = n;
-            current = current.right;
-        }else{
-            root = n;
-current = root;
-        }
-
-
-        preOrder(t1.left, t2.left, 1, current);
-        preOrder(t1.right, t2.right, 2, current);
+        preOrder(t1.left, t2.left);
+        preOrder(t1.right, t2.right);
 
 
     }
-
-
 
 
 
@@ -138,24 +125,26 @@ current = root;
 
 public static void main(String[] args){
 
-    TreeNode t1 = new TreeNode(1);
-    TreeNode t2= new TreeNode(2);;
+    TreeNode t1 = new TreeNode(-1);
+    TreeNode t2= new TreeNode(-2);;
 
 
-    insertNewNode(2, t1);
+    insertNewNode(-2, t1);
     insertNewNode(3, t1);
     insertNewNode(5, t1);
 
 
 
-    insertNewNode(1, t2);
+    insertNewNode(-1, t2);
     insertNewNode(3, t2);
     insertNewNode(4, t2);
     insertNewNode(7, t2);
 
 
 TreeNode t = mergeTrees(t1, t2);
-Main.p("");
+int val = -1;
+val += -2;
+Main.p(val);
 
 
 }
