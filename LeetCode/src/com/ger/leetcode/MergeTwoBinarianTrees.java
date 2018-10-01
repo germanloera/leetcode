@@ -1,4 +1,4 @@
-package com.ger.leetCode;
+package com.ger.leetcode;
 
 import com.ger.leetcode.Main;
 
