@@ -51,8 +51,16 @@ public class MaxIncreaseToKeepCitySkyline {
     */
 
     public static int maxIncreaseKeepingSkyline(int[][] grid) {
+int sum =  0;
 
-        return 1;
+
+
+
+
+
+
+
+        return sum;
     }
 
 
